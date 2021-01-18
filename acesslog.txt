@@ -1,0 +1,26 @@
+7.	Print last 4 acessed urls count in sorted order from the access.log file
+
+   $ cat access.log | awk '{print $7 $8 $9}' | sort |uniq -c | sort -n | tail -4 | sort
+    196 /runtime.jsHTTP/1.1"200
+    198 /favicon.icoHTTP/1.1"200
+    199 /scripts.jsHTTP/1.1"200
+    199 /vendor.jsHTTP/1.1"200
+
+
+8.	 Print last 4 frequently accessed unique url count in sorted order from the access.log file
+
+$ cat access.log | awk '{print $7 $8 $9}' | sort -n |uniq -c | tail -4
+      9 /vendor.js.mapHTTP/1.1"200
+      6 /vendor.js.mapHTTP/1.1"206
+    199 /vendor.jsHTTP/1.1"200
+      4 /wp-login.phpHTTP/1.1"200
+
+
+
+9.	List of web respose code count  in unique sorted order at specific hours
+
+Ans: $ cat access.log | awk '{print $10 }' | sort -n |uniq -c | tail -4 | sort
+      1 4993280
+      1 10308375
+      1 11049751
+      5 12000023

@@ -1,0 +1,33 @@
+i. Print employeeName and total pay who has the basepay greater than 1000
+ans:   $ cat data.csv | awk 'BEGIN {if($3>10000) printf "%s/t/t/t/t/t%s\n","EmployeeName","totalpay"} {print $2 "  " $7}’
+
+EmployeeName   TotalPay
+NATHANIEL           567595
+GARY                      538909
+ALBERT                  335279
+CHRISTOPHER       332343
+PATRICK                 326373
+DAVID                    316285
+ALSON                     315981
+DAVID                      307899
+JOANNE                    302377
+PATRICIA                  297608
+EDWARD                  294580
+
+ii. What is the aggregate total pay of employees whose job title is CAPTION
+
+$ cat data.csv | grep CAPTION |awk '{sum+=$4} END {print sum/NR}'
+156142
+ 
+
+iii. Jobtitle and overtimepay who has overtimepay is between 7000 and 10000
+
+JobTitle             OvertimePay
+DEPUTYCHIEF  9737
+ASSTDEPUTY    8601
+
+
+
+iv. Average basepay
+$ cat data.csv | awk '{sum+=$4;n++} END {if (n>0) print sum/n}'
+157972
